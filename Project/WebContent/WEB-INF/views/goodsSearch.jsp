@@ -52,12 +52,14 @@
                 <td><%= g.getQty() %></td>
                 <td>
                 	<input type="button" value="수정">
-                	<input type="button" value="삭제">
+                	<a href = "/project/goodsDelete?gno=<%= g.getGno() %>">삭제</a>
                	</td>
             </tr>
+            
+            
             <% } %>
         </table>
-	<form name="frm" action="/Teamproject/goodsSearch" method="post" onsubmit="return goodsInsert()">
+	<form name="frm" action="/project/goodsSearch" method="post" onsubmit="return goodsInsert()">
         <table>
             <tr>
                 <td>상품번호</td>

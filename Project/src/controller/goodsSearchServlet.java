@@ -50,7 +50,7 @@ public class goodsSearchServlet extends HttpServlet{
 		goodsSearchDAO dao = new goodsSearchDAO();
 		dao.insertGoods(good);
 		
-		response.sendRedirect("/Teamproject/goodsSearch");
+		response.sendRedirect("/project/goodsSearch");
 		
 		
 	}

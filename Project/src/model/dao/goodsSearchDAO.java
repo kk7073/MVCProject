@@ -33,10 +33,10 @@ public class goodsSearchDAO {
 		
 	}
 	
-	//상세페이지에서 goods정보 가져오는 메소드
+	
 	public ArrayList<GoodsSearch> getGoodsItem(){
 		dbcon();
-		String sql="select * from tbl_goods";
+		String sql=" select * from tbl_goods ";
 		ArrayList<GoodsSearch> glist = new ArrayList<>();
 		
 		try {
@@ -94,13 +94,13 @@ public class goodsSearchDAO {
 		}
 	}
 	
-	public void deleteGoods(){
+	public void deleteGoods(String gno){
 		dbcon();
 		String sql = " delete tbl_goods where gno= ? ";
 		
 		try {
 			PreparedStatement pst = con.prepareStatement(sql);
-			pst.setString(1, "test01");
+			pst.setString(1, gno);
 			pst.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -118,7 +118,7 @@ public class goodsSearchDAO {
 		
 		
 		//Goods good = new Goods();
-		dao.deleteGoods();
+//		dao.deleteGoods();
 		
 		System.out.println(list);
 	}
