@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import teamproject.Member;
+import teamproject.Member_minju;
 import teamproject.MemberDAO;
 
 @WebServlet("/reg")
@@ -35,7 +35,7 @@ public class regServlet extends HttpServlet{
 		
 		System.out.println(name + " " + id + " " + pw + " " + tel + " " + addr);
 		
-		Member member = new Member(name, id, pw, tel, addr);
+		Member_minju member = new Member_minju(name, id, pw, tel, addr);
 		MemberDAO dao = new MemberDAO();
 		dao.insertMember(member);
 		
