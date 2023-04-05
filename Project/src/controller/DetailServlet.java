@@ -12,7 +12,7 @@ import model.dao.Goods;
 import model.dao.goodsDAO;
 
 @WebServlet("/detail")
-public class detailServlet extends HttpServlet{
+public class DetailServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
