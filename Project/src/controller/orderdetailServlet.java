@@ -31,7 +31,7 @@ public class orderdetailServlet extends HttpServlet {
 		
 		 
 		 //�뜕�졇二쇨린
-		 request.setAttribute("list", list); //(�궎,�떎�젣�뜲�씠�꽣)
+		 request.setAttribute("list", list); //(키,값)
 		 request.getRequestDispatcher("WEB-INF/views/orderlist.jsp").forward(request, response);
 		 // �뿭�븷 :
 		 

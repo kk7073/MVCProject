@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="model.dao.Orderlist" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -89,51 +91,32 @@
       </ul>
     </div>
 
-    <table border="1">
-      <tr>
-        <td>
-          <img
-            src="https://www.tissotwatches.com/media/catalog/product/cache/aaadd316e453df5b08f7f4246fad1a9c/T/1/T139.207.11.031.00_R_1.png?im=Resize=(490,490)"
-            width="100"
-            height="100"
-            alt=""
-          />
-        </td>
-        <td>이름</td>
-        <td>색깔</td>
-        <td>가격</td>
-        
-      </tr>
-
-      <tr>
-        <td>
-          <img
-            src="https://www.tissotwatches.com/media/catalog/product/cache/aaadd316e453df5b08f7f4246fad1a9c/T/1/T139.207.11.031.00_R_1.png?im=Resize=(490,490)"
-            width="100"
-            height="100"
-            alt=""
-          />
-        </td>
-        <td>이름</td>
-        <td>색깔</td>
-        <td>가격</td>
-        
-      </tr>
-
-      <tr>
-        <td>
-          <img
-            src="https://www.tissotwatches.com/media/catalog/product/cache/aaadd316e453df5b08f7f4246fad1a9c/T/1/T139.207.11.031.00_R_1.png?im=Resize=(490,490)"
-            width="100"
-            height="100"
-            alt=""
-          />
-        </td>
-        <td>이름</td>
-        <td>색깔</td>
-        <td>가격</td>
-        
-      </tr>
+    <table>
+    	<tr>
+    		<td>사진</td>
+    		<td>이름</td>
+    		<td>가격</td>
+    		<td>색상</td>
+    		<td>날짜</td>
+    		<td>수량</td>
+    	</tr>
+    
+    
+    <% ArrayList<Orderlist> list = (ArrayList<Orderlist>) request.getAttribute("list"); 
+       for(Orderlist ao : list){
+    	   
+       
+    %>
+    	<tr>
+    		<td><img src=<%= ao.getImg()%>> </td>
+    		<td><%= ao.getGname() %></td>
+    		<td><%= ao.getPrice() %></td>
+    		<td><%= ao.getColor() %></td>
+    		<td><%= ao.getOdate() %></td>
+    		<td><%= ao.getAmt() %></td>
+    	</tr>
+    	<%} %>
     </table>
+   
 </body>
 </html>

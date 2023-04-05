@@ -3,9 +3,9 @@ package model.dao;
 public class Orderlist {
 	String img;
 	String gname;
-	String color;
 	int price;
-	int odate;
+	String color;
+	String odate;
 	int amt;
 	public String getImg() {
 		return img;
@@ -19,22 +19,22 @@ public class Orderlist {
 	public void setGname(String gname) {
 		this.gname = gname;
 	}
-	public String getColor() {
-		return color;
-	}
-	public void setColor(String color) {
-		this.color = color;
-	}
 	public int getPrice() {
 		return price;
 	}
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	public int getOdate() {
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
+	public String getOdate() {
 		return odate;
 	}
-	public void setOdate(int odate) {
+	public void setOdate(String odate) {
 		this.odate = odate;
 	}
 	public int getAmt() {
@@ -45,21 +45,21 @@ public class Orderlist {
 	}
 	@Override
 	public String toString() {
-		return "Orderlist [img=" + img + ", gname=" + gname + ", color="
-				+ color + ", price=" + price + ", odate=" + odate + ", amt="
+		return "Orderlist [img=" + img + ", gname=" + gname + ", price="
+				+ price + ", color=" + color + ", odate=" + odate + ", amt="
 				+ amt + "]";
 	}
 	public Orderlist(){};
-	public Orderlist(String img, String gname, String color, int price,
-			int odate, int amt) {
+	public Orderlist(String img, String gname, int price, String color,
+			String odate, int amt) {
 		super();
 		this.img = img;
 		this.gname = gname;
-		this.color = color;
 		this.price = price;
+		this.color = color;
 		this.odate = odate;
 		this.amt = amt;
 	}
 	
-	
+
 }
