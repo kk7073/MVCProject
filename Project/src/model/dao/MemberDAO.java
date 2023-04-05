@@ -32,10 +32,10 @@ public class MemberDAO {
 			e.printStackTrace();
 		}
 	}
-	public ArrayList<Member_minju> getMemberList(){
+	public ArrayList<Member> getMemberList(){
 		dbcon();
 		String sql = "select * from tbl_member";
-		ArrayList<Member_minju> mlist = new ArrayList<>();
+		ArrayList<Member> mlist = new ArrayList<>();
 		try {
 			PreparedStatement pst = con.prepareStatement(sql);
 			ResultSet rs = pst.executeQuery();
@@ -48,7 +48,7 @@ public class MemberDAO {
 				int point = rs.getInt(6);
 				String grade = rs.getString(7);
 				String addr = rs.getString(8);
-				Member_minju member = new Member_minju(mno, mname, id, pw, tel, point, grade, addr);
+				Member member = new Member(mno, mname, id, pw, tel, point, grade, addr);
 				mlist.add(member);
 			}
 		} catch (SQLException e) {
@@ -59,10 +59,10 @@ public class MemberDAO {
 	}
 	
 	
-	public void insertMember(Member_minju m){
+	public void insertMember(Member m){
 		dbcon(); 
 		String sql = " insert into tbl_member(MNO, MNAME, ID, PW,TEL,ADDR) values (?,?,?,?,?,?) ";
-		ArrayList<Member_minju> list = getMemberList();
+		ArrayList<Member> list = getMemberList();
 		try {
 			
 			PreparedStatement pst = con.prepareStatement(sql);
@@ -82,6 +82,31 @@ public class MemberDAO {
 		}
 	}
 	
+	public boolean login(String id, String pw){
+		dbcon();
+		String sql=" select pw from tbl_member where id=?";
+		
+		try{
+			PreparedStatement pst = con.prepareStatement(sql);
+			pst.setString(1, id);
+			ResultSet rs = pst.executeQuery();
+			
+			if( rs.next()){
+				if( rs.getString(1).equals(pw)){
+					return true;
+				}else{
+					return false;
+				}
+			}else{
+				return false;
+			}
+		}catch (SQLException e ){
+			e.printStackTrace();
+			return false;
+		}
+	
+	}
+	
 	public static void main(String[] args){
 		MemberDAO dao = new MemberDAO();
 		//dao.dbcon();
@@ -89,14 +114,12 @@ public class MemberDAO {
 		//Member member = new Member("테스트","idtest","pwtest","010-1234-1234","서울테스트");
 		//dao.insertMember(member);
 		
-		//ArrayList<Member> list = dao.getMemberList();
+		ArrayList<Member> list = dao.getMemberList();
 		
-		//System.out.println(list);
+		System.out.println(list);
 		
 		
 		
 		
 	}
 }
-
-

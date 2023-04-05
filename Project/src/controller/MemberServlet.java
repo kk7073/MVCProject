@@ -9,22 +9,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.dao.adminOrder;
-import model.dao.adminOrderDAO;
+import model.dao.Member;
+import model.dao.MemberDAO;
+import model.service.MemberService;
 
-@WebServlet("/adminOrder")
-public class adminOrderServlet extends HttpServlet{
+
+@WebServlet("/membercheck")
+public class MemberServlet extends HttpServlet{
+
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//가져오기
-		adminOrderDAO dao= new adminOrderDAO();
-		ArrayList<adminOrder> list = (ArrayList<adminOrder>)dao.getAdminOrderList();
-		System.out.println(list);
 		
-		//던져주기
+		MemberService service = new MemberService();
+		MemberDAO dao = new MemberDAO();
+		service.setDao(dao);
+		
+		ArrayList<Member> list = service.getMemberList();
+		//System.out.println( list);
+		
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("WEB-INF/views/adminOrder.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/views/회원조회.jsp").forward(request, response);
+		
+		
 	}
-	
 }

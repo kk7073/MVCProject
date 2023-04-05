@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class goodsDAO {
 	String driver = "oracle.jdbc.driver.OracleDriver" ;
@@ -30,6 +31,40 @@ public class goodsDAO {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	// 상품목록 goods정보들 가져오기
+	public ArrayList<Goods> getGoodsItems(){
+		dbcon();
+		String sql=" select * from tbl_goods";
+		
+		ArrayList<Goods> list = new ArrayList<>();
+		
+		try {
+			PreparedStatement pst = con.prepareStatement(sql);
+			ResultSet rs = pst.executeQuery();
+			
+			while(rs.next()){
+				String gno = rs.getString(1);
+				String img = rs.getString(2);
+				String gname = rs.getString(3);
+				int price = rs.getInt(4);
+				String color = rs.getString(5);
+				int qty = rs.getInt(6);
+				
+				Goods goodslist = new Goods(gno, img, gname, price, color, qty);
+				//System.out.println( img);
+				list.add(goodslist);
+			}
+			rs.close();
+			pst.close();
+			con.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
 	}
 	
 	//상세페이지에서 goods정보 가져오는 메소드

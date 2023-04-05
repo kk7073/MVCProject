@@ -9,22 +9,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.dao.adminOrder;
-import model.dao.adminOrderDAO;
+import model.dao.Goods;
+import model.dao.goodsDAO;
+import model.service.goodsService;
 
-@WebServlet("/adminOrder")
-public class adminOrderServlet extends HttpServlet{
+@WebServlet("/goodslist")
+public class goodsServlet extends HttpServlet{
+
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//가져오기
-		adminOrderDAO dao= new adminOrderDAO();
-		ArrayList<adminOrder> list = (ArrayList<adminOrder>)dao.getAdminOrderList();
-		System.out.println(list);
 		
-		//던져주기
+		goodsService service = new goodsService();
+		goodsDAO dao = new goodsDAO();
+		service.setDao(dao);
+		
+		
+		ArrayList<Goods> list = service.getGoodsItems();
+		//System.out.println(list);
+		
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("WEB-INF/views/adminOrder.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/views/상품목록.jsp").forward(request, response);
 	}
 	
 }
