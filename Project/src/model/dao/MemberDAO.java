@@ -59,7 +59,7 @@ public class MemberDAO {
 	}
 	
 	
-	public void insertMember(Member m){
+	public void insertMember(Member_minju m){
 		dbcon(); 
 		String sql = " insert into tbl_member(MNO, MNAME, ID, PW,TEL,ADDR) values (?,?,?,?,?,?) ";
 		ArrayList<Member> list = getMemberList();

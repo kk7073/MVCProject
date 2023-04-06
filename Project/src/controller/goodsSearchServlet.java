@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package controller;
 
 import java.io.IOException;
@@ -57,4 +57,3 @@ public class goodsSearchServlet extends HttpServlet{
 	}
 }
 
->>>>>>> refs/heads/minju
