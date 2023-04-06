@@ -64,7 +64,7 @@
 <tr>
 <td colspan="2">
 	<input type="submit" value="로그인">
-	<a href="/WEB-INF/views/index.jsp"><input type="button" value="회원가입"></a>
+	<a href="/project/reg"><input type="button" value="회원가입"></a>
 </td>
 </tr>
 

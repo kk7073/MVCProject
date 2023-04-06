@@ -36,11 +36,11 @@ public class adminOrderDAO {
 	
 	public ArrayList<adminOrder> getAdminOrderList(){
 		dbcon();
-		String sql = "select o.ono, g.gname, oi.amt, m.mno, m.mname, g.price, o.odate ";
+		String sql = "select o.ono, g.gname, oi.amt, m.mno, m.mname, g.price*oi.amt, o.odate ";
 						sql += " from order_item oi ";
 						sql += " join tbl_order o on oi.ono=o.ono ";
 						sql += " join tbl_goods g on oi.GNO=g.gno ";
-						sql += " join tbl_member m on o.MNO = m.mno ";
+						sql += " join tbl_member m on o.MNO = m.mno order by ono";
 							
 		ArrayList<adminOrder> list = new ArrayList<>();
 		try {

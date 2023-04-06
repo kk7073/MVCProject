@@ -101,7 +101,7 @@ public class OrderDAO {
 
 			
 			pst.executeUpdate();
-			System.out.println("업뎃완료");
+			System.out.println("tbl_order 업뎃완료");
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -121,6 +121,25 @@ public class OrderDAO {
 			pst.setString(3, gno);
 			
 			pst.executeUpdate();
+			System.out.println("order_item 업뎃완료");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	//구매한 수량만큼 qty값 수정
+	public void subQty(int newqty,String gno){
+		dbcon();
+		String sql=" update tbl_goods set qty=? where gno=? " ;
+		
+		try {
+			PreparedStatement pst =  con.prepareStatement(sql);
+			pst.setInt(1, newqty);
+			pst.setString(2, gno);
+			
+			pst.executeUpdate();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

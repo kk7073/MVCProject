@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import teamproject.Member_minju;
-import teamproject.MemberDAO;
+import model.dao.MemberDAO;
+import model.dao.Member_minju;
 
 @WebServlet("/reg")
 public class regServlet extends HttpServlet{

@@ -29,7 +29,7 @@ public class goodsServlet extends HttpServlet{
 		//System.out.println(list);
 		
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("WEB-INF/views/상품목록.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/views/goods.jsp").forward(request, response);
 	}
 	
 }

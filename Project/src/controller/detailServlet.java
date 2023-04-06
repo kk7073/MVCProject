@@ -17,9 +17,7 @@ public class detailServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//String gno=request.getParameter("gno");
-		String gno="s001w";
-		
+		String gno=request.getParameter("gno");
 		goodsDAO dao = new goodsDAO();
 		Goods goods = dao.getGoodsItem(gno);
 		

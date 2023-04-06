@@ -21,7 +21,7 @@ public class loginServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		request.getRequestDispatcher("WEB-INF/views/로그인.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request, response);
 	}
 	
 	
@@ -48,7 +48,7 @@ public class loginServlet extends HttpServlet{
 			//System.out.println("oo");
 			
 			// ================================================================================
-			request.getRequestDispatcher("WEB-INF/views/index.jsp").forward(request, response);
+			request.getRequestDispatcher("/project/goodslist").forward(request, response);
 			
 		}else{
 			//비회원
