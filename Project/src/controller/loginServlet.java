@@ -38,6 +38,7 @@ public class loginServlet extends HttpServlet{
 		loginService service = new loginService();
 		MemberDAO dao = new MemberDAO();
 		service.setDao(dao);
+		//
 		
 		
 		
@@ -59,7 +60,6 @@ public class loginServlet extends HttpServlet{
 			out.println("alert('없는 아이디, 비밀번호입니다')");
 			
 			HttpSession session = request.getSession();
-			
 			out.println(" window.location.href='/project/login'");
 			out.println("</script>");
 			//request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request, response);
