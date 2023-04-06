@@ -48,7 +48,7 @@ public class loginServlet extends HttpServlet{
 			//System.out.println("oo");
 			
 			// ================================================================================
-			response.sendRedirect("project/goodslist");
+			response.sendRedirect("/project/goodslist");
 			
 		}else{
 			//비회원

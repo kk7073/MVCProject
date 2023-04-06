@@ -30,10 +30,10 @@
 </head>
 <body>
     <div class="wrap">
-        <h2>관리자 메뉴</h2>
+        <h2>관리자 메뉴</h2>
         <div id="wrap2" class="wrap">
-            <a href=""><div class="button">주문조회</div></a>
-            <a href=""><div class="button">회원조회</div></a>
+            <a href=""><div class="button">주문조회</div></a>
+            <a href=""><div class="button">회원조회</div></a>
             <a href=""><div class="button">상품조회 및 관리</div></a>
         </div>
     </div>

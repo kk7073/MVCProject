@@ -1,4 +1,4 @@
-package login;
+package controller;
 
 import java.io.IOException;
 
@@ -20,7 +20,7 @@ public class logoutServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.invalidate();
 		
-		response.sendRedirect("/project/index.jsp");
+		response.sendRedirect("/project/goodslist");
 		
 	}
 }

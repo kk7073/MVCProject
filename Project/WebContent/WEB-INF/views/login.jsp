@@ -48,7 +48,7 @@
 	
 %>
 
-<form name="frm" action="/project/goodslist" method="post" onsubmit="return check()">
+<form name="frm" action="/project/login" method="post" onsubmit="return check()">
 <table>
 <caption> 로그인 </caption>
 <tr>

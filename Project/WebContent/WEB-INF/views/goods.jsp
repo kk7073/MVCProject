@@ -189,9 +189,11 @@
       <div class="search">
         <input type="text"/>
         <i onclick="search(this)" class="fa-solid fa-magnifying-glass"></i>
+        
       </div>
       <div class="user">
         <a href="/project/OrderdetailServlet"><i class="fa-solid fa-user"></i></a>
+        <a href="/project/logout"><i class="fa-solid fa-user"></i></a>
       </div>
     </header>
 
