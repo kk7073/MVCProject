@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package controller;
 
 import java.io.IOException;
@@ -9,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.dao.GoodsSearch;
+import model.dao.goodsSearchDAO;
+
 @WebServlet("/goodsSearch")
 public class goodsSearchServlet extends HttpServlet{
 
@@ -18,7 +22,7 @@ public class goodsSearchServlet extends HttpServlet{
 	
 		
 		goodsSearchDAO dao = new goodsSearchDAO();
-		ArrayList<Goods> list = dao.getGoodsItem();
+		ArrayList<GoodsSearch> list = dao.getGoodsItem();
 		
 
 		//System.out.println(list);
@@ -43,13 +47,14 @@ public class goodsSearchServlet extends HttpServlet{
 		
 		//System.out.println(gno + " " + gimg + " " + gname + " " + gprice + " " 
 		//		+ gcolor + " " + qty);
-		Goods good = new Goods(gno,gimg,gname,gprice,gcolor,qty);
+		GoodsSearch good = new GoodsSearch(gno,gimg,gname,gprice,gcolor,qty);
 		goodsSearchDAO dao = new goodsSearchDAO();
 		dao.insertGoods(good);
 		
-		response.sendRedirect("/Teamproject/goodsSearch");
+		response.sendRedirect("/project/goodsSearch");
 		
 		
 	}
 }
 
+>>>>>>> refs/heads/minju

@@ -48,7 +48,7 @@ public class loginServlet extends HttpServlet{
 			//System.out.println("oo");
 			
 			// ================================================================================
-			request.getRequestDispatcher("/project/goodslist").forward(request, response);
+			response.sendRedirect("project/goodslist");
 			
 		}else{
 			//비회원
@@ -58,6 +58,7 @@ public class loginServlet extends HttpServlet{
 			out.println("<script>");
 			out.println("alert('없는 아이디, 비밀번호입니다')");
 			out.println("</script>");
+			HttpSession session = request.getSession();
 			
 			//request.getRequestDispatcher("WEB-INF/views/로그인.jsp").forward(request, response);
 		}

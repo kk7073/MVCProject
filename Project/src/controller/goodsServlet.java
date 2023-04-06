@@ -31,5 +31,10 @@ public class goodsServlet extends HttpServlet{
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("WEB-INF/views/goods.jsp").forward(request, response);
 	}
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+	}
 	
 }
