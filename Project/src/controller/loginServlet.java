@@ -57,10 +57,12 @@ public class loginServlet extends HttpServlet{
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
 			out.println("alert('없는 아이디, 비밀번호입니다')");
-			out.println("</script>");
+			
 			HttpSession session = request.getSession();
 			
-			//request.getRequestDispatcher("WEB-INF/views/로그인.jsp").forward(request, response);
+			out.println(" window.location.href='/project/login'");
+			out.println("</script>");
+			//request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request, response);
 		}
 		
 	}
