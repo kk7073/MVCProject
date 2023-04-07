@@ -93,7 +93,7 @@
 </head>
 <body>
     
-    <form name="frm" action="/Teamproject/reg" method="post" onsubmit="return reg()">
+    <form name="frm" action="/project/reg" method="post" onsubmit="return reg()">
         <table>
          	<tr>
                 <td><input type="text" placeholder="이름" name="name" id="uname"></td>
