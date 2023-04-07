@@ -22,7 +22,7 @@ public class adminOrderServlet extends HttpServlet{
 		ArrayList<adminOrder> list = (ArrayList<adminOrder>)dao.getAdminOrderList();
 		System.out.println(list);
 		
-		//던져주기
+		//던져주기saadasdasd
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("WEB-INF/views/adminOrder.jsp").forward(request, response);
 	}
