@@ -48,8 +48,19 @@ public class loginServlet extends HttpServlet{
 			session.setAttribute("id", id);
 			//System.out.println("oo");
 			
+	
+			if(id.equals("mina")){
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('관리자님 환영합니다')");
+				//out.println(" window.location.href='http://localhost:8090/project/login'");
+				out.println("</script>");
+				request.getRequestDispatcher("WEB-INF/views/admin.jsp").forward(request, response);
+			}
 			// ================================================================================
+			
 			response.sendRedirect("/project/goodslist");
+			
 			
 		}else{
 			//비회원
