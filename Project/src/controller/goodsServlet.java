@@ -37,4 +37,5 @@ public class goodsServlet extends HttpServlet{
 		
 	}
 	
+	
 }

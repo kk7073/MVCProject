@@ -56,10 +56,10 @@ public class loginServlet extends HttpServlet{
 				//out.println(" window.location.href='http://localhost:8090/project/login'");
 				out.println("</script>");
 				request.getRequestDispatcher("WEB-INF/views/admin.jsp").forward(request, response);
-			}
-			// ================================================================================
+			}else{
 			
-			response.sendRedirect("/project/goodslist");
+				response.sendRedirect("/project/goodslist");
+			}
 			
 			
 		}else{

@@ -103,6 +103,7 @@
 	
 	/*🔴footer*/
 	footer{
+		box-shadow: 1px 1px 3px 1px rgb(201, 201, 201);
         width: 100%;
       }
       #info{
