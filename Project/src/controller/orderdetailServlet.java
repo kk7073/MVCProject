@@ -19,21 +19,21 @@ public class orderdetailServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//HttpSession session = request.getSession();
-		// String id = (String) session.getAttribute("id");  �꽭�뀡 �븘�씠�뵒 媛��졇�삤湲�.
+		HttpSession session = request.getSession();
+		String id = (String) session.getAttribute("id");
 		
 		System.out.println("kkkkkd65446");
-		//媛��졇�삤湲�
-		String id = "tpgml";
+		
+		//String id = "tpgml";
 		orderlistDAO dao = new orderlistDAO();
 		 ArrayList<Orderlist> list = dao.getOrderlist(id);
 		 System.out.println(list);
 		
 		 
-		 //�뜕�졇二쇨린
+
 		 request.setAttribute("list", list); //(키,값)
 		 request.getRequestDispatcher("WEB-INF/views/orderlist.jsp").forward(request, response);
-		 // �뿭�븷 :
+
 		 
 	}
 

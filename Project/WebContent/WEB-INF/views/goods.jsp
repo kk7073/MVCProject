@@ -27,6 +27,9 @@
         margin: 0;
         font-family: "Pretendard-Regular";
       }
+      ul,li{
+      	list-style:none;
+      	}
       body{
         min-width: 1050px;
       }
@@ -76,29 +79,12 @@
       .user i:hover {
         color: rgb(113, 113, 113);
       }
-      
-      
-     
-      /*🔴section*/
-	#goodsbox{
-        width: 640px;
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0 auto;
+      a{
+      	color:inherit;
+      	text-decoration:none;
       }
-	#goodsbox li{
-		border: 1px solid black;
-		width: 200px;
-		height: 200px;
-		margin: 3px;
-	    list-style:none;
-	    text-align: center;
-	    }
-	#goodsbox img{
-		width: 150px;
-		height: 150px;
-		object-fit: contain;
-	}
+ 
+	
 	
 	
 	/*🔴footer*/
@@ -179,6 +165,96 @@
         color: rgb(122, 122, 122);
         margin-top: 30px;
       }
+      
+      /*🔴section 이미지그룹*/
+      .list-box{
+      border:none;
+      height:auto;
+      line-height:14px;
+      clear:both;
+      
+      }
+      
+      .ul-box{
+      border-left:1px solid #ddd;
+      border-top:1px solid #ddd;
+      
+      }
+      .li_box{
+      	width:20% !important;
+      	position: relative;
+      	min-width:154px;
+      	float:left;
+      	color:#b2b2b2;
+      	background:#fff;
+      	border-right:1px solid #ddd;
+        border-bottom:1px solid #ddd;
+        box-sizing: border-box;
+      }
+      .list_img_box{
+      position:relative;
+      width: 125px;
+      margin: 0 auto 10px;
+      text-align: center;
+      height:150px;
+      overflow:hidden;
+      }
+      .list_a{
+      text-decoration:none;
+      display:block;
+      padding-top:120%;
+      position:relative;
+      overflow:hidden;
+      }
+      
+      .list_img{
+      width:100%;
+      position:absolute;
+      left:0;
+      top:50%;
+      transform: translatey(-50%);
+      
+      }
+     .li_inner{
+      	height:335px;
+      	margin:15px auto 20px;
+      
+      }
+     .article_info{
+     	font-size:12px;
+     	position:relative;
+     	width:125px;
+     	margin: 0 auto;
+     	text-align:left;
+     }
+     .item_title{
+     	text-overflow: ellipsis;
+     	overflow:hidden;
+     	white-space:nowrap;
+     	width:90%;
+     	line-height:16px;
+     	color:#000;
+     	height:16px;
+     	overflow:hidden;
+     }
+     .article_info p {
+     	margin-bottom:5px;
+     }
+     .article_info p a{
+     display: inline-block;
+     }
+     .price{
+     	margin-bottom:3px;
+     	color:#000;
+     	font-weight:bold;
+     }
+     .qty{	
+     	margin-top:0;
+     	margin-bottom:3px;
+     	padding-top:3px;
+     	color:#999;
+     	border-top:1px solid #ddd;
+     }
 </style>
 </head>
 <body>
@@ -213,7 +289,8 @@ if(id==null){
     </header>
 
 <section>
-<ul id="goodsbox">
+<div class="list-box">
+<ul class=ul-box>
 <%
 	
 	ArrayList<Goods> list = (ArrayList<Goods>)request.getAttribute("list");
@@ -221,19 +298,40 @@ if(id==null){
 	for( Goods goods : list ){
 	
 %>
-<a href="http://localhost:8090/project/detail?gno=<%=goods.getGno()%>">
-	<li>
-		<%=goods.getGno()%>
-		<img src="<%= goods.getImg()%>">
-		<%= goods.getGname()%>
-		<%= goods.getPrice()%>
-		<%= goods.getColor()%>
-		<%= goods.getQty()%>
+
+	<li class="li_box">
+	 <div class="li_inner">
+		<div class="list_img_box">
+		<a href="http://localhost:8090/project/detail?gno=<%=goods.getGno()%>" class="list_a">
+		<img src="<%= goods.getImg()%>" class=list_img>
+		</a>
+		</div>
+		<div class="article_info"> 
+			<p class="item_title">
+			<a href="http://localhost:8090/project/detail?gno=<%=goods.getGname()%>" >
+			<%= goods.getGname()%> </a>
+			 </p>
+			<p class="price">
+			<a href="http://localhost:8090/project/detail?gno=<%=goods.getPrice()%>" >
+			<%= goods.getPrice()%>원 </a>
+			 </p>
+			 <p class="color">
+			<a href="http://localhost:8090/project/detail?gno=<%=goods.getColor()%>" >
+			<%= goods.getColor()%> </a>
+			 </p>
+			 <p class="qty">
+			<a href="http://localhost:8090/project/detail?gno=<%=goods.getQty()%>" >
+			GOODSQTY<%= goods.getQty()%> </a>
+			 </p>
+		
+		</div>
+	</div>
 	
 	</li>
-</a>
+
 <%} %>
 </ul>
+</div>
 </section>
 <footer>
       <div id="info">
