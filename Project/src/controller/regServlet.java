@@ -39,7 +39,7 @@ public class regServlet extends HttpServlet{
 		MemberDAO dao = new MemberDAO();
 		dao.insertMember(member);
 		
-		response.sendRedirect("/project/login");
+		request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request, response);
 		
 	}
 

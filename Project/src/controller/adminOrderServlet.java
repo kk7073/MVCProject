@@ -21,8 +21,8 @@ public class adminOrderServlet extends HttpServlet{
 		adminOrderDAO dao= new adminOrderDAO();
 		ArrayList<adminOrder> list = (ArrayList<adminOrder>)dao.getAdminOrderList();
 		System.out.println(list);
-		//아아
-		//던져주기saadasdasd
+		
+		//던져주기
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("WEB-INF/views/adminOrder.jsp").forward(request, response);
 	}

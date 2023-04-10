@@ -77,6 +77,7 @@
       
       /*🔴footer*/
 	footer{
+		box-shadow: 1px 1px 3px 1px rgb(201, 201, 201);
         width: 100%;
       }
       #info{
@@ -187,6 +188,13 @@
 		height: 35px;
 		margin-top: 5px;
 	}
+	.btn{
+		cursor: pointer;
+	}
+	.btn:hover{
+		background-color: black;
+		color: white;
+	}
 	input{
 		border: none;
 	}
@@ -230,12 +238,26 @@
       <div class="search">
         <input type="text"/>
         <i onclick="search(this)" class="fa-solid fa-magnifying-glass"></i>
-        
       </div>
+<%
+ String id = (String)session.getAttribute("id");
+
+if(id==null){
+%>       
+      <div class="user">
+        <a href="/project/login"><i class="fa-solid fa-user"></i></a>
+      </div>
+<%}else{ %>
+	</div>
       <div class="user">
         <a href="/project/OrderdetailServlet"><i class="fa-solid fa-user"></i></a>
-        <a href="/project/logout"><i class="fa-solid fa-user"></i></a>
+        <a href="/project/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
       </div>
+
+
+
+<%} %>
+
     </header>
 
 <section>
@@ -256,8 +278,8 @@
 
 <tr>
 <td colspan="2">
-	<input type="submit" value="로그인" class="btn1">
-	<a href="/project/reg"><input type="button"  class="btn2" value="회원가입"></a>
+	<input type="submit" value="로그인" class="btn1 btn">
+	<a href="/project/reg"><input type="button"  class="btn2 btn" value="회원가입"></a>
 </td>
 </tr>
 
