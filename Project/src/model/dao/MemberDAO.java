@@ -107,6 +107,31 @@ public class MemberDAO {
 	
 	}
 	
+	public int idCheck(String id){
+		dbcon();
+		String sql = " select * from tbl_member where id=? ";
+		int result = 0;
+		try {
+			PreparedStatement pst = con.prepareStatement(sql);
+			pst.setString(1, id);
+			ResultSet rs = pst.executeQuery();
+			
+			if(rs.next()){
+				result = 1;
+			}else{
+				System.out.println("아이디가 없습니다.");
+				result = 0;
+			}
+			
+			pst.close();
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
 	public static void main(String[] args){
 		MemberDAO dao = new MemberDAO();
 		//dao.dbcon();
@@ -114,10 +139,10 @@ public class MemberDAO {
 		//Member member = new Member("테스트","idtest","pwtest","010-1234-1234","서울테스트");
 		//dao.insertMember(member);
 		
-		ArrayList<Member> list = dao.getMemberList();
+		//ArrayList<Member> list = dao.getMemberList();
 		
-		System.out.println(list);
-		
+		//System.out.println(list);
+		dao.idCheck("sun123");
 		
 		
 		

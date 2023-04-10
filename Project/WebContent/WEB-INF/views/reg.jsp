@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="model.dao.MemberDAO" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -88,7 +89,8 @@
            margin : 40px auto;
            
        }
-       #reg_tbl input{
+       
+       #reg_tbl tr:nth-child(1) input{
            border: 0px;
            border-bottom: 1px solid black;
            width: 395px;
@@ -96,6 +98,57 @@
            outline-style: none;
            padding-left : 5px;   
        }
+       #reg_tbl tr:nth-child(2) input[type="text"]{
+           border: 0px;
+           border-bottom: 1px solid black;
+           width: 310px;
+           height: 40px;
+           outline-style: none;
+           padding-left : 5px;   
+       }
+       #reg_tbl tr:nth-child(2) input[type="button"]{
+           
+           width: 70px;
+           height: 30px;
+           margin-left : 5px;
+           outline-style: none;
+           padding-left : 5px;
+           padding-right : 5px;
+           
+       }
+       #reg_tbl tr:nth-child(3) input{
+           border: 0px;
+           border-bottom: 1px solid black;
+           width: 395px;
+           height: 40px;
+           outline-style: none;
+           padding-left : 5px;   
+       }
+       #reg_tbl tr:nth-child(4) input{
+           border: 0px;
+           border-bottom: 1px solid black;
+           width: 395px;
+           height: 40px;
+           outline-style: none;
+           padding-left : 5px;   
+       }
+       #reg_tbl tr:nth-child(5) input{
+           border: 0px;
+           border-bottom: 1px solid black;
+           width: 395px;
+           height: 40px;
+           outline-style: none;
+           padding-left : 5px;   
+       }
+       #reg_tbl tr:nth-child(6) input{
+           border: 0px;
+           border-bottom: 1px solid black;
+           width: 395px;
+           height: 40px;
+           outline-style: none;
+           padding-left : 5px;   
+       }
+       
        #reg_tbl input:focus{
 	       transition: 0.6s;
 	       background-color: #d1d1d1;
@@ -110,6 +163,7 @@
            background-color: black;
            color: white;
            width :400px;
+           height : 40px;
            font-weight: 800;
            margin-top: 10px;
        }
@@ -247,8 +301,10 @@
         }
         
     }
-        
-       
+
+    function openIdChk(){
+    	window.open("IdCheckForm.jsp", "idwin", "width=400, height=350");
+    }
     </script>
 </head>
 <body>
@@ -289,7 +345,7 @@ if(id==null){
                 <td><input type="text" placeholder="이름" name="name" id="uname"></td>
             </tr>
             <tr>
-                <td><input type="text" placeholder="아이디" name="uid" id="uid"></td>
+                <td><input type="text" placeholder="아이디" name="uid" id="uid"><input type="button" value="중복확인" onclick="openIdChk()" id="idchkbtn"></td>
             </tr>
             <tr>
                 <td><input type="password" placeholder="비밀번호" name="pw" id="pworigin" onkeyup="passwordCheck()"></td>
